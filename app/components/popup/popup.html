@@ -1,0 +1,21 @@
+<div class="popup-container">
+	<div ng-if="popup.user" class="popup">
+		<p ng-click="popup.hidePopup()" class="popup-close">X</p>
+
+		<!-- Lokacija za različen content -->
+		<ng-transclude></ng-transclude>
+
+		<div class="popup-actions">
+			<button ng-click="popup.showDeleteAlert()" class="btn btn-danger">
+				<i class="fas fa-trash"></i>
+			</button>
+		</div>
+	</div>
+
+	<div ng-if="popup.displayDeleteAlert" class="delete-alert">
+		<h3>Alert</h3>
+		<p>Are you sure you want to delete this record?</p>
+		<button ng-click="popup.deleteUser(popup.user)">Yes</button>
+		<button ng-click="popup.hideDeleteAlert()">No</button>
+	</div>
+</div>
